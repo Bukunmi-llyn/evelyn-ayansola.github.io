@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promellon Case Study | Evelyn Ayansola</title>
+<meta name="description" content="Product case study of Promellon: a workflow platform for government institutions, from discovery to a first institutional client.">
+<meta property="og:title" content="Promellon Case Study | Evelyn Ayansola">
+<meta property="og:description" content="Product case study of Promellon: a workflow platform for government institutions, from discovery to a first institutional client.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a ledger-style case study. Narrow label rail on the left, content on the right, one idea per row. */
+:root{
+  --bg:#F6F8FC; --surface:#FFFFFF; --ink:#0E1B3A; --muted:#566178; --line:#D9DFEA;
+  --accent:#2150D6; --accent-soft:#E3EBFF; --flag:#8A5A00; --flag-soft:#FFF1D6;
+  --good:#0F6B43; --good-soft:#DDF3E8; --bad:#B42318; --bad-soft:#FDE4E1; --neutral-soft:#E9EDF5;
+  --navy:#0E1B3A; --navy-ink:#F5F7FB; --navy-muted:#B9C4DA;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A1126; --surface:#111A36; --ink:#E8EDF8; --muted:#9DA9C4; --line:#243059;
+  --accent:#8DAAFF; --accent-soft:#1B2A5C; --flag:#F2B24D; --flag-soft:#3A2D10;
+  --good:#58D19A; --good-soft:#123826; --bad:#FF8F84; --bad-soft:#431A18; --neutral-soft:#1B2547;
+  --navy:#0F1A3B; --navy-ink:#F5F7FB; --navy-muted:#B9C4DA; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1126; --surface:#111A36; --ink:#E8EDF8; --muted:#9DA9C4; --line:#243059;
+  --accent:#8DAAFF; --accent-soft:#1B2A5C; --flag:#F2B24D; --flag-soft:#3A2D10;
+  --good:#58D19A; --good-soft:#123826; --bad:#FF8F84; --bad-soft:#431A18; --neutral-soft:#1B2547;
+  --navy:#0F1A3B; --navy-ink:#F5F7FB; --navy-muted:#B9C4DA; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+.mono{font-family:var(--mono)}
+.label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+
+/* top bar */
+.top{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:20px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+.mark{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font:700 15px var(--mono)}
+.top nav{display:flex;gap:18px;flex-wrap:wrap;font-size:14px}
+.top nav a{color:var(--muted);text-decoration:none}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:48px;padding-block:72px 56px;align-items:center}
+.hero h1{font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:-.03em;margin:14px 0 18px}
+.hero .lede{font-size:21px;line-height:1.5;color:var(--muted);max-width:34ch}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:16px 28px;margin-top:32px}
+.facts dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.facts dd{margin:2px 0 0;font-size:15px}
+.cta{display:inline-block;margin-top:32px;padding:13px 22px;background:var(--accent);color:#fff;border-radius:10px;font-weight:700;text-decoration:none}
+:root[data-theme="dark"] .cta{color:#0A1126}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cta{color:#0A1126}}
+.ledger{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.ledger header{padding:12px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:center}
+.lrow:last-child{border-bottom:0}
+.narr{font:500 13px/1.4 var(--mono);overflow-wrap:anywhere}
+.lmeta{grid-column:1/-1;font-size:14px;color:var(--muted)}
+.amt{font:500 14px var(--mono);text-align:right}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.p-good{background:var(--good-soft);color:var(--good)}
+.p-bad{background:var(--bad-soft);color:var(--bad)}
+.p-flag{background:var(--flag-soft);color:var(--flag)}
+.p-neutral{background:var(--neutral-soft);color:var(--muted)}
+@media (max-width:820px){.hero{grid-template-columns:minmax(0,1fr);padding-block:44px 36px;gap:32px}}
+
+/* summary band */
+.band{background:var(--navy);color:var(--navy-ink);border-radius:18px;padding:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.band .label{color:#F2A33A}
+.band p{margin-top:8px;color:var(--navy-muted);font-size:16px}
+@media (max-width:820px){.band{grid-template-columns:minmax(0,1fr);gap:22px;padding:24px}}
+
+/* sections */
+section.s{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px 48px;padding-block:64px;border-top:1px solid var(--line)}
+.rail{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);align-self:start;position:sticky;top:16px}
+.rail span{display:block;margin-top:6px;font-weight:400;letter-spacing:0;text-transform:none;font-size:13px;color:var(--muted)}
+.body{display:flex;flex-direction:column;gap:22px;min-width:0}
+.body h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em}
+.body h3{font-size:19px}
+.body p{max-width:66ch}
+.note{font-size:14px;color:var(--muted)}
+@media (max-width:820px){section.s{grid-template-columns:minmax(0,1fr);padding-block:44px}.rail{position:static}}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.stat b{display:block;font-size:40px;line-height:1.05;letter-spacing:-.02em;color:var(--accent)}
+.stat span{font-size:15px;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:minmax(0,1fr)}}
+blockquote{margin:0;padding:6px 0 6px 20px;border-left:3px solid var(--accent);font-size:19px;line-height:1.5;max-width:60ch}
+blockquote cite{display:block;margin-top:8px;font-size:14px;font-style:normal;color:var(--muted)}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:700px){.two{grid-template-columns:minmax(0,1fr)}}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.box h3{margin-bottom:8px}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.box.cut{background:transparent;border-style:dashed}
+
+.steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;background:var(--accent-soft);border-radius:10px;padding:12px 10px;font-size:14px;line-height:1.35}
+.steps li::before{content:counter(s);display:block;font:700 13px var(--mono);color:var(--accent);margin-bottom:4px}
+@media (max-width:820px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
+th,td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+tr.hl td{background:var(--accent-soft)}
+
+.decisions{display:flex;flex-direction:column;gap:16px}
+.dec{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:12px 28px}
+.dec h3{font-size:20px}
+.dec .opt{font-size:14px;color:var(--muted);margin-top:6px}
+.dec dl{margin:0;display:grid;gap:10px}
+.dec dt{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.dec dd{margin:2px 0 0;font-size:16px}
+@media (max-width:700px){.dec{grid-template-columns:minmax(0,1fr)}}
+
+.arch{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 18px;align-items:stretch}
+.node{border-radius:10px;padding:14px 16px;background:var(--neutral-soft);font-size:14px}
+.node b{display:block;font-size:16px;margin-bottom:2px}
+.node.blue{background:var(--accent);color:#fff}
+:root[data-theme="dark"] .node.blue{color:#0A1126}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .node.blue{color:#0A1126}}
+.node.dark{background:var(--navy);color:var(--navy-ink)}
+.node.dark span{color:var(--navy-muted)}
+.node.amber{background:var(--flag-soft);color:var(--flag)}
+.node.dash{background:transparent;border:2px dashed var(--line);color:var(--muted)}
+.arrow{grid-column:1/-1;text-align:center;font:500 13px var(--mono);color:var(--muted)}
+.supa{grid-column:1/-1;border:2px dashed var(--line);border-radius:12px;padding:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.supa>p{grid-column:1/-1;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:700px){.arch,.supa{grid-template-columns:minmax(0,1fr)}}
+ol.flow{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:6px}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font:500 13px var(--mono);padding:4px 10px;border-radius:6px;background:var(--neutral-soft)}
+.tag.v{background:var(--accent-soft);color:var(--accent)}
+
+.bar{display:flex;height:44px;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.bar div{display:grid;place-items:center;font:700 14px var(--mono);min-width:0}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.b-good{background:var(--good-soft);color:var(--good)}
+.b-flag{background:var(--flag-soft);color:var(--flag)}
+.b-bad{background:var(--bad-soft);color:var(--bad)}
+.b-neu{background:var(--neutral-soft);color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:700px){.tiers{grid-template-columns:minmax(0,1fr)}}
+pre{margin:0;padding:18px;border-radius:12px;background:var(--navy);color:var(--navy-ink);font:400 13.5px/1.6 var(--mono);overflow-x:auto}
+pre .k{color:#8DAAFF}pre .c{color:#9DA9C4}
+
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figure img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;display:block}
+figcaption{font-size:14px;color:var(--muted)}
+.shots{display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:700px){.cols{grid-template-columns:minmax(0,1fr)}}
+.todo li::marker{color:var(--flag)}
+.done li::marker{color:var(--good)}
+footer{border-top:1px solid var(--line);padding-block:40px 64px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:15px;color:var(--muted)}
+
+/* additions for home and Promellon pages */
+a.brand{display:flex}
+.glance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.glance .stat b{font-size:44px}
+.home-hero{padding-block:72px 40px;max-width:760px}
+.home-hero h1{font-size:clamp(44px,7vw,84px);font-weight:700;letter-spacing:-.03em;margin:14px 0 18px}
+.home-hero .lede{font-size:22px;line-height:1.5;color:var(--muted)}
+.home-hero p.bio{margin-top:20px;max-width:62ch}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.btn2{display:inline-block;padding:12px 20px;border:1px solid var(--line);border-radius:10px;font-weight:700;text-decoration:none;color:var(--ink);background:var(--surface)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media (max-width:760px){.cards{grid-template-columns:minmax(0,1fr)}}
+.card{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;text-decoration:none;color:inherit}
+.card:hover{border-color:var(--accent)}
+.card h3{font-size:28px;letter-spacing:-.02em}
+.card .go{margin-top:auto;font-weight:700;color:var(--accent)}
+.card .meta{font-size:14px;color:var(--muted)}
+.rows{display:flex;flex-direction:column;gap:8px}
+.mods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.mods{grid-template-columns:minmax(0,1fr)}}
+.mod{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:15px}
+.mod b{display:block;font-size:16px;margin-bottom:2px}
+.mod.mvp{background:var(--accent-soft);border-color:transparent}
+.mvpkey{display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--accent-soft);border:1px solid var(--accent);margin-right:6px;vertical-align:-1px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="top">
+    <a class="brand" href="../" style="text-decoration:none;color:inherit"><span class="mark" aria-hidden="true">E</span>Evelyn Ayansola · Portfolio</a>
+    <nav aria-label="Sections">
+      <a href="#problem">Problem</a><a href="#discovery">Discovery</a><a href="#scope">Scope</a><a href="#decisions">Decisions</a><a href="#workflow">Workflow</a><a href="#outcomes">Outcomes</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div>
+      <p class="label">Product case study · GovTech / B2B SaaS</p>
+      <h1>Promellon</h1>
+      <p class="lede">A workflow and productivity platform for government institutions, built from discovery with the people who run on paper.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Product manager, sole PM</dd></div>
+        <div><dt>When</dt><dd>September 2025 to present</dd></div>
+        <div><dt>Team</dt><dd>Lean: product, engineering, design, operations</dd></div>
+        <div><dt>Status</dt><dd>Live with a pilot ministry, 9+ modules</dd></div>
+      </dl>
+    </div>
+    <div class="glance" role="list">
+      <div class="stat" role="listitem"><b>17</b><span>departments in the pilot ministry, with several units under each</span></div>
+      <div class="stat" role="listitem"><b>236</b><span>users on the platform</span></div>
+      <div class="stat" role="listitem"><b>&lt; 3 mo</b><span>from discovery to a working MVP</span></div>
+      <div class="stat" role="listitem"><b>9+</b><span>modules live today, from a four-module MVP</span></div>
+    </div>
+  </header>
+
+  <div class="band">
+    <div><p class="label">The problem</p><p>Ministry work ran on physical files and in-person presence. Approvals took weeks to months and stopped when the right person was not in the building.</p></div>
+    <div><p class="label">What I did</p><p>Led discovery with the staff, led the pivot from a generic workflow tool to a GovTech platform, and defined an MVP small enough for paper-based users to adopt.</p></div>
+    <div><p class="label">What happened</p><p>A state ministry signed as the first institutional client, and the platform grew from four modules to nine or more, all live.</p></div>
+  </div>
+
+  <section class="s" id="problem">
+    <div class="rail">Problem<span>What was broken</span></div>
+    <div class="body">
+      <h2>Administrative work that depended on who was in the room</h2>
+      <p>Government ministries ran their administrative systems on physical documentation and in-person presence. A memo needed specific people at specific desks at each stage.</p>
+      <div class="two">
+        <div class="box"><h3>Slow</h3><p>Memo approval cycles took weeks to months, even for routine approvals.</p></div>
+        <div class="box"><h3>Fragile</h3><p>Processes stopped entirely when a key approver, including executive signatories, was not physically present.</p></div>
+        <div class="box"><h3>Invisible</h3><p>No one could see where a submission sat in the chain, and there was no standard escalation or delegation.</p></div>
+        <div class="box"><h3>Unaccountable</h3><p>Documents lived mostly on paper, with a risk of loss and misfiling, and no audit trail.</p></div>
+      </div>
+      <blockquote>Processes were not just slow. They stopped entirely when the right person was not physically in the building.<cite>The finding that shaped the product</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="s" id="discovery">
+    <div class="rail">Discovery<span>How I found the real problem</span></div>
+    <div class="body">
+      <h2>Discovery changed what we were building</h2>
+      <p>Promellon began as a broad workflow product. I ran a structured discovery with the pilot ministry, combining three methods:</p>
+      <ol class="flow">
+        <li><b>Stakeholder interviews</b> with dozens of staff across the ministry, from junior staff to senior officials.</li>
+        <li><b>Direct observation</b> of how memos moved, and where they stalled.</li>
+        <li><b>Workflow process mapping</b> to capture the approval structures the ministry already used.</li>
+      </ol>
+      <p>Discovery narrowed a broad vision into a specific, urgent problem. Ministries were the highest-pain, most underserved opportunity I found: an acute problem, few alternatives built for how these institutions work, and many ministries that share the same structure, which supports a land-and-expand model.</p>
+      <div class="box"><h3>The pivot</h3><p>I led the move from a generic workflow tool to a GovTech platform. The decision came from the research, not from assumption. It changed Promellon's positioning and led to its first institutional client.</p></div>
+      <h3>Who I designed for</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Persona</th><th>Role</th><th>Digital comfort</th><th>What they needed</th></tr>
+        <tr><td>The Initiator</td><td>Junior staff who create and submit memos</td><td>Mixed</td><td>Easy submission and real-time status</td></tr>
+        <tr><td>The Router</td><td>Middle management who review and forward</td><td>Low to moderate</td><td>Clear routing, no doubt about the next step</td></tr>
+        <tr><td>The Approver</td><td>Senior officials and directors</td><td>Low</td><td>Review key information fast and approve without friction</td></tr>
+        <tr><td>The Executive</td><td>Final sign-off</td><td>Low, little tolerance for complexity</td><td>Approve remotely and keep authority without being present</td></tr>
+      </table></div>
+      <p class="note">The two senior personas set the design rule for the whole product: extreme simplicity where decisions are made, and mobile approval for executives.</p>
+    </div>
+  </section>
+
+  <section class="s" id="scope">
+    <div class="rail">Scope<span>What shipped first, and what followed</span></div>
+    <div class="body">
+      <h2>Four modules first, then nine or more</h2>
+      <p>The MVP was deliberately small. I cut it to four modules so users who were used to physical files could learn one familiar thing at a time. The modules I held back needed heavier architecture and the transfer of employee records, so they came later.</p>
+      <p class="note"><span class="mvpkey"></span>Shipped in the first MVP</p>
+      <div class="mods">
+        <div class="mod mvp"><b>Task and project management</b>Assign, track and report on work</div>
+        <div class="mod mvp"><b>Workflow and approvals</b>Multi-stage approval chains with e-signatures and an audit trail</div>
+        <div class="mod mvp"><b>Messaging, calls and meetings</b>Team channels, direct messages and meetings</div>
+        <div class="mod mvp"><b>Leave management</b>Request, approval and balances</div>
+        <div class="mod"><b>Dashboard and reporting</b>Leadership view of progress and pending approvals</div>
+        <div class="mod"><b>People</b>Employee records, recruitment, onboarding and offboarding</div>
+        <div class="mod"><b>Workforce and development</b>Schedules, attendance, timesheets and reviews</div>
+        <div class="mod"><b>Payroll</b>Payroll preparation, review and approval</div>
+        <div class="mod"><b>Asset management</b>Asset register, maintenance and verification</div>
+      </div>
+      <figure><img src="img/modules.png" alt="Overview of Promellon modules: task and project management, workflow and approvals, leave management, messaging, dashboard and reporting, people, workforce and development, payroll and asset management" loading="lazy"><figcaption>Overview of the modules live today.</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="s" id="decisions">
+    <div class="rail">Decisions<span>Options, reasons, trade-offs</span></div>
+    <div class="body">
+      <h2>Five decisions that shaped the product</h2>
+      <div class="decisions">
+        <article class="dec"><div><h3>Positioning</h3><p class="opt">A generic workflow tool, or a GovTech platform</p></div>
+          <dl><div><dt>Chose</dt><dd>GovTech. Discovery showed a sharper pain, a clearer buyer and a land-and-expand path across ministries with the same structure.</dd></div>
+          <div><dt>Trade-off</dt><dd>A narrower market in exchange for a focused product and a first client.</dd></div></dl></article>
+        <article class="dec"><div><h3>MVP scope</h3><p class="opt">Broad launch, or four familiar modules</p></div>
+          <dl><div><dt>Chose</dt><dd>Messaging, task and project management, workflow and approvals, and leave management. Users came from paper, so familiarity mattered more than breadth.</dd></div>
+          <div><dt>Trade-off</dt><dd>Payroll, people records and asset management waited. They needed more architecture work and the transfer of employee records.</dd></div></dl></article>
+        <article class="dec"><div><h3>Rules as configuration</h3><p class="opt">Hardcode the ministry's rules, or make them configurable</p></div>
+          <dl><div><dt>Chose</dt><dd>Conditional routing, such as value thresholds that send a request down a different route, is built as configurable rules, not fixed values. The ministry's regulations can change.</dd></div>
+          <div><dt>Trade-off</dt><dd>More design effort up front. A full custom workflow builder was deferred to a later release.</dd></div></dl></article>
+        <article class="dec"><div><h3>Design for the least confident user</h3><p class="opt">Optimise for power users, or for senior approvers</p></div>
+          <dl><div><dt>Chose</dt><dd>Minimal steps, clear labels and no assumed technical knowledge. Designed so executives can review and approve on a phone.</dd></div>
+          <div><dt>Trade-off</dt><dd>Fewer shortcuts for staff who are comfortable with software.</dd></div></dl></article>
+        <article class="dec"><div><h3>Adoption plan</h3><p class="opt">Switch off paper, or run both</p></div>
+          <dl><div><dt>Chose</dt><dd>My PRD planned a parallel physical and digital period during the pilot, plus in-person onboarding for senior staff, to build trust before a full transition.</dd></div>
+          <div><dt>Trade-off</dt><dd>Duplicated effort for the pilot period.</dd></div></dl></article>
+      </div>
+      <h3>How the team worked</h3>
+      <p>On a lean team, ambiguity is expensive. I set up an alignment process across engineering, design and operations: shared goals, clear priorities and timelines at each sprint, and documented decisions. It kept the team delivering within the approved timelines. With institutional buyers, I also put a working demo in front of decision-makers early, because demos persuade where strategy decks do not.</p>
+    </div>
+  </section>
+
+  <section class="s" id="workflow">
+    <div class="rail">Spotlight<span>Memo submission and approval</span></div>
+    <div class="body">
+      <h2>The approval workflow, from the PRD</h2>
+      <p>The hardest feature was the memo submission and approval workflow. I wrote its PRD (version 1.0, February 2026). Two paths mirror how the ministry already works:</p>
+      <div class="two">
+        <div class="box"><h3>Direct escalation</h3><p>A fast path for urgent submissions, from the originating unit straight to executive review, with minimal steps in between.</p></div>
+        <div class="box"><h3>Post-approval payment path</h3><p>A six-phase procurement-to-payment workflow with conditional routing, document checkpoints, an audit pass or fail, and multi-actor sign-off.</p></div>
+      </div>
+      <h3>Requirements that mattered most</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Requirement</th><th>Priority</th><th>Why</th></tr>
+        <tr><td>Role-based routing that mirrors the ministry's structure</td><td>Must have</td><td>Adoption depends on the system matching the way people already work</td></tr>
+        <tr><td>Conditional routing on request value</td><td>Must have</td><td>A core decision gate that had to be automated</td></tr>
+        <tr><td>Required-document checklist at each checkpoint</td><td>Must have</td><td>Stops incomplete submissions from advancing</td></tr>
+        <tr><td>Audit fail loop with a reason and blocked resubmission</td><td>Must have</td><td>Incomplete submissions were a leading cause of audit failures</td></tr>
+        <tr><td>Real-time status for every actor</td><td>Must have</td><td>Removes the top complaint: not knowing where a submission is</td></tr>
+        <tr><td>Digital approval and e-signature for executives</td><td>Must have</td><td>Directly removes the physical-presence bottleneck found in discovery</td></tr>
+        <tr><td>Full, searchable audit log</td><td>Must have</td><td>Compliance and accountability</td></tr>
+        <tr><td>Stage SLA tracking and delegation to a proxy approver</td><td>Should have</td><td>Accountability, and cover when an approver is away</td></tr>
+      </table></div>
+      <h3>Targets I set</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Metric</th><th>Baseline</th><th>Target</th></tr>
+        <tr><td>Memo approval cycle time</td><td>Weeks to months</td><td>Under 5 business days</td></tr>
+        <tr><td>Workflows completed without physical intervention</td><td>Not measurable on paper</td><td>Over 90%</td></tr>
+        <tr><td>Active users as a share of staff onboarded</td><td>0%</td><td>Over 70% within 90 days of launch</td></tr>
+        <tr><td>Submissions with a full audit trail</td><td>0%</td><td>100%</td></tr>
+      </table></div>
+      <p class="note">These are the targets I wrote into the PRD, not measured results.</p>
+      <h3>Risks I planned for</h3>
+      <div class="tablewrap"><table>
+        <tr><th>Risk</th><th>Severity</th><th>Mitigation</th></tr>
+        <tr><td>Low digital literacy among senior approvers</td><td>High</td><td>Extreme simplicity at approver touchpoints and in-person onboarding</td></tr>
+        <tr><td>Resistance to leaving physical files</td><td>Medium</td><td>Run physical and digital in parallel during the pilot</td></tr>
+        <tr><td>Weak connectivity and infrastructure</td><td>Medium</td><td>Mobile-first design, low-bandwidth testing, offline drafts</td></tr>
+        <tr><td>Regulatory rules change</td><td>Low</td><td>Build conditional logic as configurable rules</td></tr>
+      </table></div>
+      <h3>Open questions I raised</h3>
+      <ul class="rows" style="margin:0;padding-left:20px">
+        <li>Is click-to-approve enough for legal validity, or is a cryptographic signature required?</li>
+        <li>Does the payment-system integration belong in this release, or is a manual update acceptable for the pilot?</li>
+        <li>Who is the ministry's designated administrator for onboarding staff and assigning roles?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s" id="outcomes">
+    <div class="rail">Outcomes<span>What it led to</span></div>
+    <div class="body">
+      <h2>From discovery to a first institutional client</h2>
+      <div class="two">
+        <div class="box"><h3>First institutional client</h3><p>A state ministry signed on, which creates a repeatable route to other ministries.</p></div>
+        <div class="box"><h3>Adoption at scale</h3><p>17 departments, each with several units, and 236 users on the platform.</p></div>
+        <div class="box"><h3>An MVP that earned attention</h3><p>The early product was shown to senior leadership before full delivery, which helped build support for the platform.</p></div>
+        <div class="box"><h3>A product that kept growing</h3><p>From four modules at launch to nine or more, all live. I also represented Promellon at GITEX Nigeria, pitching the platform to government and private-sector clients.</p></div>
+      </div>
+      <div class="box"><h3>Limits of this write-up</h3><ul>
+        <li>Client details are anonymised on purpose.</li>
+        <li>The PRD figures above are targets. Measured adoption and cycle-time results are not included here.</li>
+        <li>I am the sole product manager, but this was a team effort across engineering, design and operations.</li></ul></div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Promellon case study · Evelyn Ayansola</span>
+    <span><a href="../">Back to portfolio</a> · <a href="http://www.linkedin.com/in/evelyn-ayansola" target="_blank" rel="noopener">LinkedIn</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
